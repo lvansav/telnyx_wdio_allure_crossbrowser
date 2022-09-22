@@ -6,13 +6,8 @@ const chromeConfig = {
     services: ["chromedriver"],
     capabilities:[{
         maxInstances: 2,
-        browserName: "chrome",
-        'goog:chromeOptions': {
-            args: []
-        }
-    }],
-    logLevel: 'warn',
-    path: '/wd/hub'
+        browserName: "chrome"
+    }]
 };
 
 exports.config = chromeConfig

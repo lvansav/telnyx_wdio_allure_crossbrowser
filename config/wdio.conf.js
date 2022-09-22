@@ -221,14 +221,19 @@ exports.config = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
+    // beforeTest: async function (test, context) {
+    //     browser.setWindowRect(0, 0, 1920, 1080)
     // },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
      */
-    // beforeHook: function (test, context) {
-    // },
+    beforeHook: async function (test, context) {
+        browser.setWindowRect(0, 0, 1920, 1080)
+        await browser.url('https://telnyx.com/')
+        const closeCookieBtn = await $('[aria-label="close and deny"]')
+        await closeCookieBtn.click()
+    },
     /**
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
