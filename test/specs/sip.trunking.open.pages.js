@@ -12,6 +12,7 @@ describe('Going to another page test suite for the SIP Trunking page', () => {
       "Learn about our Network" on the SIP Trunking page', async () => {
         const aboutNetwork = await $('main [href*="global-ip"]')
         await aboutNetwork.click()
+        await aboutNetwork.click()
 
         const globIpUrl = /solutions\/global-ip-network$/
         const pageTitle = await $('h1>span')

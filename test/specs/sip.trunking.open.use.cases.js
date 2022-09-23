@@ -29,4 +29,24 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
         await expect(exploreReportsLink).toBeClickable()
         await expect(startFreeBtn).toBeClickable()
     });
+
+    it('Should to  the Managed Services use case page by clicking the Managed \
+      Services use case block in the SIP Trunking page', async () => {
+        const managServUseCase = await $('main [href*="managed-services-telephony-reseller"]')
+        await managServUseCase.click()
+
+        const manServUrl = /use-cases\/managed-services-telephony-reseller$/
+        const manServPageTitle = await $('h1>span')
+        const manServTitleText = 'Managed Service Providers'
+        const monUsagePageSubtitle = await $('div:nth-child(6) h2')
+        const signUpTodayBtn = await $('div:nth-child(3) [href="/sign-up"]')
+        const seeApiPricingLink = await $('main [href="/pricing/call-control"]')
+
+        await expect(browser).toHaveUrlContaining(manServUrl)
+        await expect(manServPageTitle).toBeDisplayed()
+        await expect(manServPageTitle).toHaveText(manServTitleText)
+        await expect(monUsagePageSubtitle).toBeDisplayed()
+        await expect(signUpTodayBtn).toBeClickable()
+        await expect(seeApiPricingLink).toBeClickable()
+    })
 })
