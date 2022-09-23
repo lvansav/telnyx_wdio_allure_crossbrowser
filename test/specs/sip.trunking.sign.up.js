@@ -89,7 +89,8 @@ describe('Registration and contact support test suite for the SIP Trunking page'
         await expect(submitBtn).toBeClickable()
     });
 
-    it('Should get talking to an experts from the SIP Trunking page about the Scheduling a Demo of the Mission Control Portal', async () => {
+    it('Should get talking to an experts from the SIP Trunking page about the \
+      Scheduling a Demo of the Mission Control Portal', async () => {
         const scheduleLink = await $('header span>[href*="contact-us"]')
         await scheduleLink.click()
 
@@ -136,4 +137,24 @@ describe('Registration and contact support test suite for the SIP Trunking page'
         await expect(addInfoInp).toHaveValue(randText)
         await expect(submitBtn).toBeClickable()
     });
+
+    it.only('Should to open the Global IP network solutions page by clicking the \
+      "Learn about our Network" on the SIP Trunking page', async () => {
+        const aboutNetwork = await $('main [href*="global-ip"]')
+        await aboutNetwork.click()
+
+        const globIpUrl = /solutions\/global-ip-network$/
+        const pageTitle = await $('h1>span')
+        const pageTitleText = 'The Global, Private Network Built for Real-Time Comms.'
+        const tryNetworkBtn = await $('main div:nth-child(3) [href="/sign-up"]')
+        const pricingBtn = await $('main [href="/pricing"]')
+        const startFreeTrialBtn = await $('main div:nth-child(2) [href="/sign-up"]')
+
+        await expect(browser).toHaveUrlContaining(globIpUrl)
+        await expect(pageTitle).toBeDisplayed()
+        await expect(pageTitle).toHaveText(pageTitleText)
+        await expect(tryNetworkBtn).toBeClickable()
+        await expect(pricingBtn).toBeClickable()
+        await expect(startFreeTrialBtn).toBeClickable()
+    })
 })
