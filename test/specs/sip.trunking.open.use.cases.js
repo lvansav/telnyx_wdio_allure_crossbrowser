@@ -48,5 +48,27 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
         await expect(monUsagePageSubtitle).toBeDisplayed()
         await expect(signUpTodayBtn).toBeClickable()
         await expect(seeApiPricingLink).toBeClickable()
-    })
+    });
+
+    it('Should to the Small Business use case page by clicking the Small Business\
+      use case block in the Trunking page', async () => {
+        const smallBusUseCase = await $('main [href*="voip-for-small-business"]')
+        await smallBusUseCase.click()
+
+        const smallBusUrl = /use-cases\/voip-for-small-business$/
+        const smallBusPageTitle = await $('h1>span')
+        const smallBusTitleText = 'The Best VoIP Solution for Small Business'
+        const voipVsLandlinePageSubtitle = await $('div:nth-child(3) header h2')
+        const letsTalkBtn = await $('main [href="/contact-us"]')
+        const startBuldingBtn = await $('div:nth-child(9) [href="/sign-up"]')
+        const signUpFor10Btn = await $('div:nth-child(10) [href="/sign-up"]')
+
+        await expect(browser).toHaveUrlContaining(smallBusUrl)
+        await expect(smallBusPageTitle).toBeDisplayed()
+        await expect(smallBusPageTitle).toHaveText(smallBusTitleText)
+        await expect(voipVsLandlinePageSubtitle).toBeDisplayed()
+        await expect(letsTalkBtn).toBeClickable()
+        await expect(startBuldingBtn).toBeClickable()
+        await expect(signUpFor10Btn).toBeClickable()
+      });
 })
