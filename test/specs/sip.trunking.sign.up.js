@@ -37,4 +37,56 @@ describe('Registration and contact support test suite for the SIP Trunking page'
         const resendLink = await $('main button')
         await expect(resendLink).toBeDisplayed()
     });
+
+    it.only('Should get talking to an experts from the SIP Trunking product page', async () => {
+        const talkExpectsLink = await $('div:nth-child(4) [href*="contact-us"]')
+        await talkExpectsLink.click()
+
+        const reasonOpts = ['Sales-Inquiry', 'Support', 'Legal']
+        const randReason = reasonOpts[Math.floor(Math.random() * 3)]
+
+        const randFirstName = faker.name.firstName()
+        const randLastName = faker.name.lastName()
+        const randEmail = faker.internet.email()
+
+
+        const randNumCodeIdx = Math.floor(Math.random() * 221) + 1
+        const randNumCode = await $(`#Phone_Number_Extension__c option:nth-child(${randNumCodeIdx})`).getValue()
+        // const randNumCode = await numCodes[randNumCodeIdx].get
+        
+        const randNum = faker.phone.number()
+        const randWebSite = faker.internet.url()
+        const randText = faker.lorem.paragraph()
+
+        const reasonSelector = await $('#Reason_for_Contact__c')
+        const firstNameInp = await $('#FirstName')
+        const lastNameInp = await $('#LastName')
+        const emailInp = await $('#Email')
+        const numCodeSelector = await $('#Phone_Number_Extension__c')
+        const numInp = await $('#Phone_Number_Base__c')
+        const webSiteInp = await $('#Website')
+        const addInfoInp = await $('#Form_Additional_Information__c')
+        const receiveBox = await $('#mktoCheckbox_10173_0')
+        const submitBtn = await $('button.mktoButton')
+
+        await reasonSelector.selectByAttribute('value', randReason)
+        await firstNameInp.addValue(randFirstName)
+        await lastNameInp.addValue(randLastName)
+        await emailInp.addValue(randEmail)
+        await numCodeSelector.selectByAttribute('value', randNumCode)
+        await numInp.addValue(randNum)
+        await webSiteInp.addValue(randWebSite)
+        await addInfoInp.addValue(randText)
+        await receiveBox.click()
+
+        await expect(reasonSelector).toHaveValue(randReason)
+        await expect(firstNameInp).toHaveValue(randFirstName)
+        await expect(lastNameInp).toHaveValue(randLastName)
+        await expect(emailInp).toHaveValue(randEmail)
+        await expect(numCodeSelector).toHaveValue(randNumCode)
+        await expect(numInp).toHaveValue(randNum)
+        await expect(webSiteInp).toHaveValue(randWebSite)
+        await expect(addInfoInp).toHaveValue(randText)
+        await expect(submitBtn).toBeClickable()
+    })
 })
