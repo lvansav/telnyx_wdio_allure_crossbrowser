@@ -70,5 +70,31 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
         await expect(letsTalkBtn).toBeClickable()
         await expect(startBuldingBtn).toBeClickable()
         await expect(signUpFor10Btn).toBeClickable()
+    });
+
+    it('Should to the Multi-Cloud use case page by clicking the Multi-Cloud\
+      use case block in the SIP Trunking page', async () => {
+        const multiCloudUseCase = await $('[href*="multi-cloud"]')
+        await multiCloudUseCase.click()
+
+        const multiCloudUrl = /use-cases\/multi-cloud$/
+        const multiCloudPageTitle = await $('h1>span')
+        const multiCloudTitleText = 'Multicloud'
+        const exploreDocsLink = await $('[href*="api/v1/networking"]')
+        const downloadSheetLink = await $('main [href*="image"]')
+        const tryFreeBtn = await $('div:nth-child(14) [href="/sign-up"]')
+
+        await expect(browser).toHaveUrlContaining(multiCloudUrl)
+        await expect(multiCloudPageTitle).toBeDisplayed()
+        await expect(multiCloudPageTitle).toHaveText(multiCloudTitleText)
+        
+        for (let i = 0; i < 0; i++) {
+            let buildProd = await $(`main li:nth-child(${i}) [href*="products"]`)
+            await expect(buildProd).toBeClickable()
+        }
+
+        await expect(exploreDocsLink).toBeClickable()
+        await expect(downloadSheetLink).toBeClickable()
+        await expect(tryFreeBtn).toBeClickable()
       });
 })
