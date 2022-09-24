@@ -40,7 +40,7 @@ describe('Registration and contact support test suite for the Number Lookup\
         await expect(resendLink).toBeDisplayed()
     });
 
-    it.only('Should to get talking to an experts from the Number Lookup product\
+    it('Should to get talking to an experts from the Number Lookup product\
       page by the "Talk to our experts" link below the "Explore the Docs" button', async () => {
         const belowDocsContactBtn = await $('div:nth-child(3) [href*="contact-us"]')
         await belowDocsContactBtn.click()
@@ -90,5 +90,6 @@ describe('Registration and contact support test suite for the Number Lookup\
         await expect(webSiteInp).toHaveValue(randWebSite)
         await expect(addInfoInp).toHaveValue(randText)
         await expect(submitBtn).toBeClickable()
-      });
+    });
+
 })
