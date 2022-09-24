@@ -40,21 +40,55 @@ describe('Registration and contact support test suite for the Number Lookup\
         await expect(resendLink).toBeDisplayed()
     });
 
-    it.only('Should to open the Number lookup Owerview doc page from the Number\
-      Lookup product page', async () => {
-        const exploreDocsBtn = await $('div>[href*="api/v2/number-lookup"]')
-        exploreDocsBtn.click()
+    it.only('Should to get talking to an experts from the Number Lookup product\
+      page by the "Talk to our experts" link below the "Explore the Docs" button', async () => {
+        const belowDocsContactBtn = await $('div:nth-child(3) [href*="contact-us"]')
+        await belowDocsContactBtn.click()
 
-        const numberDocsUrl = /number-lookup$/
-        const numberDocsPageTitle = await $('#telnyx-api-reference div>span')
-        const numberDocsPageTitleTxt = 'Number lookup Overview'
-        const runPostmanBtn = await $('//img[@alt="Run in Postman"]/..')
-        const httpEndpointsTitle = await $('h4#http-endpoints')
+        const reasonOpts = ['Sales-Inquiry', 'Support', 'Legal']
+        const randReason = reasonOpts[Math.floor(Math.random() * 3)]
 
-        await expect(browser).toHaveUrlContaining(numberDocsUrl)
-        await expect(numberDocsPageTitle).toBeDisplayed()
-        await expect(numberDocsPageTitle).toHaveTextContaining(numberDocsPageTitleTxt)
-        await expect(runPostmanBtn).toBeClickable()
-        await expect(httpEndpointsTitle).toBeDisplayed()
-    });
+        const randFirstName = faker.name.firstName()
+        const randLastName = faker.name.lastName()
+        const randEmail = faker.internet.email()
+
+
+        const randNumCodeIdx = Math.floor(Math.random() * 221) + 1
+        const randNumCode = await $(`#Phone_Number_Extension__c option:nth-child(${randNumCodeIdx})`).getValue()
+        
+        const randNum = faker.phone.number()
+        const randWebSite = faker.internet.url()
+        const randText = faker.lorem.paragraph()
+
+        const reasonSelector = await $('#Reason_for_Contact__c')
+        const firstNameInp = await $('#FirstName')
+        const lastNameInp = await $('#LastName')
+        const emailInp = await $('#Email')
+        const numCodeSelector = await $('#Phone_Number_Extension__c')
+        const numInp = await $('#Phone_Number_Base__c')
+        const webSiteInp = await $('#Website')
+        const addInfoInp = await $('#Form_Additional_Information__c')
+        const receiveBox = await $('#mktoCheckbox_10173_0')
+        const submitBtn = await $('button.mktoButton')
+
+        await reasonSelector.selectByAttribute('value', randReason)
+        await firstNameInp.addValue(randFirstName)
+        await lastNameInp.addValue(randLastName)
+        await emailInp.addValue(randEmail)
+        await numCodeSelector.selectByAttribute('value', randNumCode)
+        await numInp.addValue(randNum)
+        await webSiteInp.addValue(randWebSite)
+        await addInfoInp.addValue(randText)
+        await receiveBox.click()
+
+        await expect(reasonSelector).toHaveValue(randReason)
+        await expect(firstNameInp).toHaveValue(randFirstName)
+        await expect(lastNameInp).toHaveValue(randLastName)
+        await expect(emailInp).toHaveValue(randEmail)
+        await expect(numCodeSelector).toHaveValue(randNumCode)
+        await expect(numInp).toHaveValue(randNum)
+        await expect(webSiteInp).toHaveValue(randWebSite)
+        await expect(addInfoInp).toHaveValue(randText)
+        await expect(submitBtn).toBeClickable()
+      });
 })
