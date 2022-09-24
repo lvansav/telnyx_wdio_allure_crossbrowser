@@ -51,7 +51,7 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
     });
 
     it('Should to open the SMS Marketing use case page by clicking the\
-    SMS Marketing use case block in the Number Lookup product page', async () => {
+      SMS Marketing use case block in the Number Lookup product page', async () => {
         const smsMarketingUseCase = await $('[href*="/sms-marketing"]')
         await smsMarketingUseCase.click()
 
@@ -70,5 +70,27 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
         await expect(smsMarketPlatformSubtitle).toHaveText(smsMarketPlatformSubtitleTxt)
         await expect(seeAllProdLink).toBeClickable()
         await expect(tryItFreeBtn).toBeClickable()
-    })
+    });
+
+    it('Should to open the Call Tracking use case page by clicking the\
+      Call Tracking use case block in the Number Lookup product page', async () => {
+        const callTrackUseCase = await $('main [href*="/call-tracking"]')
+        await callTrackUseCase.click()
+
+        const callTrackUrl = /use-cases\/call-tracking$/
+        const callTrackPageTitle = await $('h1>span')
+        const callTrackPageTitleTxt = 'Call Tracking'
+        const gainInsightChannel = await $('header>h2:nth-child(2)')
+        const gainInsightChanTxt = 'Gain insights in every channel'
+        const seeAllProdLink = await $('main [href="/products"]')
+        const tryItFreeBtn = await $('main [href="/sign-up"]')
+
+        await expect(browser).toHaveUrlContaining(callTrackUrl)
+        await expect(callTrackPageTitle).toBeDisplayed()
+        await expect(callTrackPageTitle).toHaveText(callTrackPageTitleTxt)
+        await expect(gainInsightChannel).toBeDisplayed()
+        await expect(gainInsightChannel).toHaveText(gainInsightChanTxt)
+        await expect(seeAllProdLink).toBeClickable()
+        await expect(tryItFreeBtn).toBeClickable()
+    });
 })
