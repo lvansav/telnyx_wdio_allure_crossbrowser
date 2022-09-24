@@ -92,4 +92,32 @@ describe('Registration and contact support test suite for the Number Lookup\
         await expect(submitBtn).toBeClickable()
     });
 
+    it('Should to sign up from the Number Lookup page by the "Try for\
+      Free" button', async () => {
+        const tryForFreeBtn = await $('div:nth-child(7) [href="/sign-up"]')
+        await tryForFreeBtn.click()
+        const randEmail = faker.internet.email()
+
+        const emailInp = await $('#email')
+        const nameInp = await $('#full_name')
+        const passInp = await $('#password')
+        const termsBox = await $('[aria-labelledby="terms-label"]')
+
+        await emailInp.addValue(randEmail)
+        await nameInp.addValue(faker.name.fullName())
+        await passInp.addValue(faker.internet.password(30, false, /[!-}]/, '!1So'))
+        await termsBox.click()
+
+        const createAccBtn = await $('[type="submit"]')
+        await createAccBtn.click()
+        await createAccBtn.click()
+
+        await expect(browser).toHaveUrlContaining('/sign-up/verify-email/f')
+        
+        const verifyEmail = await $('p>strong')
+        await expect(verifyEmail).toHaveText(randEmail)
+
+        const resendLink = await $('main button')
+        await expect(resendLink).toBeDisplayed()
+    })
 })
