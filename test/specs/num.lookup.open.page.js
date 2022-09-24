@@ -25,4 +25,22 @@ describe('Going to another page test suite for the Number Lookup product page', 
         await expect(runPostmanBtn).toBeClickable()
         await expect(httpEndpointsTitle).toBeDisplayed()
     });
+
+    it('Should to Open the Massaging doc page by clicking "Explore use-case\
+      guides" button on the Number Lookup page', async () => {
+        const exploreGuidesBtn = await $('[href*="/docs/v2/messaging"]')
+        await exploreGuidesBtn.click()
+
+        const msgApiDocsUrl = /docs\/v2\/messaging$/
+        const msgApiPageTitle = await $('h1#messaging')
+        const msgApiPageTitleTxt = 'Messaging'
+        const seeTheSpecsBtn = await $('main [href="/docs/api/v2/messaging"]')
+        const sendYouSms = await $('main [href*="/quickstarts/portal-setup"]')
+
+        await expect(browser).toHaveUrlContaining(msgApiDocsUrl)
+        await expect(msgApiPageTitle).toBeDisplayed()
+        await expect(msgApiPageTitle).toHaveText(msgApiPageTitleTxt)
+        await expect(seeTheSpecsBtn).toBeClickable()
+        await expect(sendYouSms).toBeClickable()
+    });
 });
