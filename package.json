@@ -6,12 +6,12 @@
         "@faker-js/faker": "^7.5.0",
         "@wdio/allure-reporter": "^7.24.0",
         "@wdio/cli": "^7.24.0",
-        "@wdio/local-runner": "^7.24.0",
-        "@wdio/mocha-framework": "^7.24.0",
-        "@wdio/spec-reporter": "^7.24.0",
+        "@wdio/local-runner": "^7.25.0",
+        "@wdio/mocha-framework": "^7.25.0",
+        "@wdio/selenium-standalone-service": "^7.25.0",
+        "@wdio/spec-reporter": "^7.25.0",
         "chromedriver": "^105.0.1",
         "geckodriver": "^3.0.2",
-        "msedgedriver": "^91.0.0",
         "wdio-chromedriver-service": "^7.3.2",
         "wdio-edgedriver-service": "^1.2.0",
         "wdio-geckodriver-service": "^3.0.6"
@@ -22,6 +22,7 @@
         "wdio:firefox": "wdio run ./config/wdio.gecko.conf.js",
         "wdio:edge": "wdio run ./config/wdio.msedge.conf.js",
         "wdio:headless": "wdio run ./config/wdio.headless.conf.js",
+        "wdio:selenium:standalone": "wdio run ./config/wdio.selenium.stand.conf.js",
         "allure:generate": "allure generate ./allure-results --clean",
         "allure:serve": "allure serve allure-results"
     }
