@@ -31,8 +31,8 @@ exports.config = {
     logLevel: 'info',
     bail: 0,
     baseUrl: 'http://localhost',
-    waitforTimeout: 10000,
-    connectionRetryTimeout: 120000,
+    waitforTimeout: 120000,
+    connectionRetryTimeout: 180000,
     connectionRetryCount: 3,
     services: ['chromedriver','geckodriver'],
     framework: 'mocha',
@@ -44,7 +44,7 @@ exports.config = {
     }]],
     mochaOpts: {
         ui: 'bdd',
-        timeout: 90000
+        timeout: 120000
     },
     /**
      * Gets executed once before all workers get launched.

@@ -29,6 +29,7 @@ button', async () => {
         const createAccBtn = await $('[type="submit"]')
         await createAccBtn.click()
         await createAccBtn.click()
+        await createAccBtn.click()
 
         const verifyEmail = await $('//h1/following-sibling::div//strong')
         const resendLink = await $('main button')

@@ -25,7 +25,7 @@
         "wdio:selenium:standalone": "wdio run ./config/wdio.selenium.stand.conf.js",
         "wdio:number:lookup:product:page": "wdio run ./config/wdio.conf.js --suite numberLookupProdPage",
         "wdio:sip:trunking:product:page": "wdio run ./config/wdio.conf.js --suite sipTrunkingProdPage",
-        "allure:generate": "allure generate ./allure-results --clean",
+        "allure:generate": "allure generate ./allure-results",
         "allure:serve": "allure serve allure-results"
     }
 }
