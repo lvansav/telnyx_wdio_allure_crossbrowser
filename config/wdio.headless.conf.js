@@ -4,8 +4,7 @@ const headless = {
     ...config,
     services: [
         'chromedriver',
-        'geckodriver',
-        'edgedriver'
+        'geckodriver'
     ],
     maxInstances: 1,
     capabilities: [{
@@ -30,15 +29,6 @@ const headless = {
             ]
         }
 
-    },
-    {
-        browserName:'MicrosoftEdge',
-        maxInstances: 1,
-        "ms:edgeOptions": {
-            args:[
-                "headless"
-            ]
-        }
     }]
 }
 
