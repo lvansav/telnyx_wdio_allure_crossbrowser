@@ -27,5 +27,8 @@
         "wdio:sip:trunking:product:page": "wdio run ./config/wdio.conf.js --suite sipTrunkingProdPage",
         "allure:generate": "npx allure generate allure-results -o allure-report --clean",
         "allure:serve": "allure open allure-report"
+    },
+    "dependencies": {
+        "allure-commandline": "^2.18.1"
     }
 }
