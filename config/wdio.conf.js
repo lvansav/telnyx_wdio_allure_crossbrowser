@@ -36,7 +36,7 @@ exports.config = {
     connectionRetryCount: 3,
     services: ['chromedriver','geckodriver'],
     framework: 'mocha',
-    specFileRetries: 1,
+    // specFileRetries: 1,
     reporters: [
         'spec',
         ['allure', {
