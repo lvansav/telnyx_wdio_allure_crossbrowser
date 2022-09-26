@@ -29,7 +29,7 @@ describe('Registration and contact support test suite for the SIP Trunking page'
         await createAccBtn.click()
         await createAccBtn.click()
 
-        const verifyEmail = await $('p>strong')
+        const verifyEmail = await $('//h1/following-sibling::div//strong')
         const resendLink = await $('main button')
         
         await expect(verifyEmail).toHaveText(randEmail)

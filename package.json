@@ -23,6 +23,8 @@
         "wdio:edge": "wdio run ./config/wdio.msedge.conf.js",
         "wdio:headless": "wdio run ./config/wdio.headless.conf.js",
         "wdio:selenium:standalone": "wdio run ./config/wdio.selenium.stand.conf.js",
+        "wdio:number:lookup:product:page": "wdio run ./config/wdio.conf.js --suite numberLookupProdPage",
+        "wdio:sip:trunking:product:page": "wdio run ./config/wdio.conf.js --suite sipTrunkingProdPage",
         "allure:generate": "allure generate ./allure-results --clean",
         "allure:serve": "allure serve allure-results"
     }

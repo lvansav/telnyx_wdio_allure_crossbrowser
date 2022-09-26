@@ -12,9 +12,13 @@ The project has test cases for SIP Trunking product page and Number Lookup produ
 
 #### Available scripts
 
-For run on special browsers:
+1. For run on special browsers:
 
     npm run wdio:chrome
     npm run wdio:firefox
-    npm run wdio:edge
+
+2. For run different suites:
+
+    npm run wdio:number:lookup:product:page
+    npm run wdio:sip:trunking:product:page
 

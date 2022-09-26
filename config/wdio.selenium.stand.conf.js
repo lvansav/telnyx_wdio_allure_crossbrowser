@@ -2,9 +2,9 @@ const { config } = require('./wdio.conf')
 
 const seleniumStandConf = {
     ...config,
-    maxInstances: 6,
+    maxInstances: 3,
     capabilities: [{
-        maxInstances: 2,
+        maxInstances: 6,
         browserName: 'chrome',
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
@@ -14,7 +14,7 @@ const seleniumStandConf = {
     },
     {
         browserName: 'firefox',
-        maxInstances: 2,
+        maxInstances: 6,
         'moz:firefoxOptions': {
             args:[
                 "-headless"
@@ -23,7 +23,7 @@ const seleniumStandConf = {
     },
     {
         browserName: "MicrosoftEdge",
-        maxInstances: 2,
+        maxInstances: 6,
         "ms:edgeOptions": {
             args:[
                 "-headless"
