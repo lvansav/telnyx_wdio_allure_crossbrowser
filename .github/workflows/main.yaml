@@ -15,7 +15,7 @@ jobs:
       - name: Install
         run: npm ci
       - name: Run tests
-        run: npm run wdio:selenium:standalone
+        run: npx wdio run ./config/wdio.selenium.stand.conf.js --spec=sip.trunking.sign.up.js
       - name: Generate report
         if: always()
         run: npm run allure:generate
