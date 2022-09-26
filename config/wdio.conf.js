@@ -23,6 +23,18 @@ exports.config = {
     specs: [
         './test/specs/**/*.js'
     ],
+    suites: {
+        sipTrunkingProdPage: [
+            './test/specs/sip.trunking.open.pages.js',
+            './test/specs/sip.trunking.open.use.cases.js',
+            './test/specs/sip.trunking.sign.up.js'
+        ],
+        numberLookupProdPage: [
+            './test/specs/num.lookup.open.page.js',
+            './test/specs/num.lookup.open.use.cases.js',
+            './test/specs/num.lookup.sign.up.js'
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -43,7 +55,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 3,
+    maxInstances: 2,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -54,7 +66,7 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        maxInstances: 1,
         //
         browserName: 'chrome',
         acceptInsecureCerts: true
@@ -125,7 +137,7 @@ exports.config = {
     framework: 'mocha',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 1,
     //
     // Delay in seconds between the spec file retry attempts
     // specFileRetriesDelay: 0,

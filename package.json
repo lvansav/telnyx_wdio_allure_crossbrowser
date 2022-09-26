@@ -21,6 +21,7 @@
         "wdio:chrome": "wdio run ./config/wdio.chrome.conf.js",
         "wdio:firefox": "wdio run ./config/wdio.gecko.conf.js",
         "wdio:edge": "wdio run ./config/wdio.msedge.conf.js",
+        "wdio:headless": "wdio run ./config/wdio.headless.conf.js",
         "allure:generate": "allure generate ./allure-results --clean",
         "allure:serve": "allure serve allure-results"
     }

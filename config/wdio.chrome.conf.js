@@ -5,7 +5,7 @@ const chromeConfig = {
     ...config,
     services: ["chromedriver"],
     capabilities:[{
-        maxInstances: 2,
+        maxInstances: 1,
         browserName: "chrome"
     }]
 };

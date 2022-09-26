@@ -3,13 +3,11 @@ const path = require('path')
 
 const edgeConfig = {
     ...config,
-    services: ["msedgedriver"],
+    services: ["edgedriver"],
     capabilities:[{
-        maxInstances: 2,
+        maxInstances: 1,
         browserName: "MicrosoftEdge"
-    }],
-    logLevel: 'warn',
-    path: '/wd/hub'
+    }]
 };
 
 exports.config = edgeConfig

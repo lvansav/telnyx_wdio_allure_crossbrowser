@@ -5,11 +5,9 @@ const geckoConfig = {
     ...config,
     services: ["geckodriver"],
     capabilities:[{
-        maxInstances: 2,
+        maxInstances: 1,
         browserName: "firefox"
-    }],
-    logLevel: 'warn',
-    path: '/wd/hub'
+    }]
 };
 
 exports.config = geckoConfig
