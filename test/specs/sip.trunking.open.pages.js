@@ -11,7 +11,7 @@ describe('Going to another page test suite for the SIP Trunking page', () => {
     });
 
     it('Should to open the Global IP network solutions page by clicking the \
-      "Learn about our Network" on the SIP Trunking page', async () => {
+ "Learn about our Network" on the SIP Trunking page', async () => {
         const aboutNetwork = await $('main [href*="global-ip"]')
         await aboutNetwork.click()
         await aboutNetwork.click()
@@ -32,7 +32,7 @@ describe('Going to another page test suite for the SIP Trunking page', () => {
     });
 
     it('Should to open the Elastic SIP Trunking price page from the Sip \
-      Trunking product page and send the pricelist csv file to the random email', async () => {
+ Trunking product page and send the pricelist csv file to the random email', async () => {
         const seePricing = await $('main [href="/pricing/elastic-sip"]')
         await seePricing.click()
         
@@ -54,7 +54,7 @@ describe('Going to another page test suite for the SIP Trunking page', () => {
     });
 
     it('Should to Open the "What are the support hours?" article from\
-      the SIP Trunking product page', async () => {
+ the SIP Trunking product page', async () => {
         const unparalSupportLink = await $('[href*="what-are-the-support-hours"]')
         await unparalSupportLink.click()
 

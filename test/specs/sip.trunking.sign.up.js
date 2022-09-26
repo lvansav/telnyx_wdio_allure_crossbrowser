@@ -29,12 +29,10 @@ describe('Registration and contact support test suite for the SIP Trunking page'
         await createAccBtn.click()
         await createAccBtn.click()
 
-        await expect(browser).toHaveUrlContaining('/sign-up/verify-email/f')
-        
         const verifyEmail = await $('p>strong')
-        await expect(verifyEmail).toHaveText(randEmail)
-
         const resendLink = await $('main button')
+        
+        await expect(verifyEmail).toHaveText(randEmail)
         await expect(resendLink).toBeDisplayed()
     });
 
@@ -53,7 +51,7 @@ describe('Registration and contact support test suite for the SIP Trunking page'
         const randNumCodeIdx = Math.floor(Math.random() * 221) + 1
         const randNumCode = await $(`#Phone_Number_Extension__c option:nth-child(${randNumCodeIdx})`).getValue()
         
-        const randNum = faker.phone.number()
+        const randNum = faker.phone.number('###########')
         const randWebSite = faker.internet.url()
         const randText = faker.lorem.paragraph()
 
@@ -90,7 +88,7 @@ describe('Registration and contact support test suite for the SIP Trunking page'
     });
 
     it('Should get talking to an experts from the SIP Trunking page about the \
-      Scheduling a Demo of the Mission Control Portal', async () => {
+ Scheduling a Demo of the Mission Control Portal', async () => {
         const scheduleLink = await $('header span>[href*="contact-us"]')
         await scheduleLink.click()
 
@@ -102,7 +100,7 @@ describe('Registration and contact support test suite for the SIP Trunking page'
         const randNumCodeIdx = Math.floor(Math.random() * 221) + 1
         const randNumCode = await $(`#Phone_Number_Extension__c option:nth-child(${randNumCodeIdx})`).getValue()
         
-        const randNum = faker.phone.number()
+        const randNum = faker.phone.number('###########')
         const randWebSite = faker.internet.url()
         const randText = faker.lorem.paragraph()
 

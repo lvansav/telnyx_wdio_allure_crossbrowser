@@ -9,7 +9,7 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
     });
 
     it('Should to open the Contact Center use case page by clicking the\
-      Contact Center use case block in the Number Lookup product page', async () => {
+ Contact Center use case block in the Number Lookup product page', async () => {
         const contactCenterUseCase = await $('main [href*="contact-center"]')
         await contactCenterUseCase.click()
 
@@ -31,7 +31,7 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
     });
 
     it('Should to open the Two-Factor Authentication use case page by clicking the\
-      Two-Factor Authentication use case block in the Number Lookup product page', async () => {
+ Two-Factor Authentication use case block in the Number Lookup product page', async () => {
         const twoFactAuthUseCase = await $("[href*='/two-factor-authentication']")
         await twoFactAuthUseCase.click()
 
@@ -51,7 +51,7 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
     });
 
     it('Should to open the SMS Marketing use case page by clicking the\
-      SMS Marketing use case block in the Number Lookup product page', async () => {
+ SMS Marketing use case block in the Number Lookup product page', async () => {
         const smsMarketingUseCase = await $('[href*="/sms-marketing"]')
         await smsMarketingUseCase.click()
 
@@ -73,7 +73,7 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
     });
 
     it('Should to open the Call Tracking use case page by clicking the\
-      Call Tracking use case block in the Number Lookup product page', async () => {
+ Call Tracking use case block in the Number Lookup product page', async () => {
         const callTrackUseCase = await $('main [href*="/call-tracking"]')
         await callTrackUseCase.click()
 

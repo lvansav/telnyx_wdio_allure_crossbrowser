@@ -1,7 +1,6 @@
 const { faker } = require('@faker-js/faker')
 
-describe('Registration and contact support test suite for the Number Lookup\
-  product page', () => {
+describe('Registration and contact support test suite for the Number Lookup product page', () => {
     beforeEach(async () => {
         const headerHidenLink = await $('header div>span>a')
         await headerHidenLink.moveTo()
@@ -11,8 +10,8 @@ describe('Registration and contact support test suite for the Number Lookup\
         await sipTrunking.click()
     });
 
-    it('Should to sign up from the Number Lookup product page by the "Sign up"\
-      button', async () => {
+    it('Should to sign up from the Number Lookup product page by the "Sign up" \
+button', async () => {
         const aboveSignUpBtn = await $('main div:nth-child(4) [href="/sign-up"]')
         await aboveSignUpBtn.click()
         const randEmail = faker.internet.email()
@@ -31,17 +30,15 @@ describe('Registration and contact support test suite for the Number Lookup\
         await createAccBtn.click()
         await createAccBtn.click()
 
-        await expect(browser).toHaveUrlContaining('/sign-up/verify-email/f')
-        
         const verifyEmail = await $('p>strong')
-        await expect(verifyEmail).toHaveText(randEmail)
-
         const resendLink = await $('main button')
+        
+        await expect(verifyEmail).toHaveText(randEmail)
         await expect(resendLink).toBeDisplayed()
     });
 
     it('Should to get talking to an experts from the Number Lookup product\
-      page by the "Talk to our experts" link below the "Explore the Docs" button', async () => {
+ page by the "Talk to our experts" link below the "Explore the Docs" button', async () => {
         const belowDocsContactBtn = await $('div:nth-child(3) [href*="contact-us"]')
         await belowDocsContactBtn.click()
 
@@ -56,7 +53,7 @@ describe('Registration and contact support test suite for the Number Lookup\
         const randNumCodeIdx = Math.floor(Math.random() * 221) + 1
         const randNumCode = await $(`#Phone_Number_Extension__c option:nth-child(${randNumCodeIdx})`).getValue()
         
-        const randNum = faker.phone.number()
+        const randNum = faker.phone.number('###########')
         const randWebSite = faker.internet.url()
         const randText = faker.lorem.paragraph()
 
@@ -93,7 +90,7 @@ describe('Registration and contact support test suite for the Number Lookup\
     });
 
     it('Should to sign up from the Number Lookup page by the "Try for\
-      Free" button', async () => {
+ Free" button', async () => {
         const tryForFreeBtn = await $('div:nth-child(7) [href="/sign-up"]')
         await tryForFreeBtn.click()
         const randEmail = faker.internet.email()
@@ -112,17 +109,15 @@ describe('Registration and contact support test suite for the Number Lookup\
         await createAccBtn.click()
         await createAccBtn.click()
 
-        await expect(browser).toHaveUrlContaining('/sign-up/verify-email/f')
-        
         const verifyEmail = await $('p>strong')
-        await expect(verifyEmail).toHaveText(randEmail)
-
         const resendLink = await $('main button')
+        
+        await expect(verifyEmail).toHaveText(randEmail)
         await expect(resendLink).toBeDisplayed()
     });
 
-    it.only('Should to get talking to an experts from the Number Lookup\
-      product page by the "Talk to our experts" link below the "Explore the\
+    it('Should to get talking to an experts from the Number Lookup\
+ product page by the "Talk to our experts" link below the "Explore the\
       Docs" button', async () => {
         const talkExpertsBeloweTryFreeLink = await $('div:nth-child(7) [href*="/contact-us"]')
         await talkExpertsBeloweTryFreeLink.click()
@@ -138,7 +133,7 @@ describe('Registration and contact support test suite for the Number Lookup\
         const randNumCodeIdx = Math.floor(Math.random() * 221) + 1
         const randNumCode = await $(`#Phone_Number_Extension__c option:nth-child(${randNumCodeIdx})`).getValue()
         
-        const randNum = faker.phone.number()
+        const randNum = faker.phone.number('###########')
         const randWebSite = faker.internet.url()
         const randText = faker.lorem.paragraph()
 

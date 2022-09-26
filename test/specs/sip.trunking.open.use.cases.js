@@ -9,7 +9,7 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
     });
 
     it('Should to open the UCaaS use case page by clicking the UCaaS use \
-      case block in the SIP Trunking page', async () => {
+ case block in the SIP Trunking page', async () => {
         const ucaasUseCase = await $('[href="/use-cases/ucaas"]')
         await ucaasUseCase.click()
         
@@ -31,7 +31,7 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
     });
 
     it('Should to  the Managed Services use case page by clicking the Managed \
-      Services use case block in the SIP Trunking page', async () => {
+ Services use case block in the SIP Trunking page', async () => {
         const managServUseCase = await $('main [href*="managed-services-telephony-reseller"]')
         await managServUseCase.click()
 
@@ -51,7 +51,7 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
     });
 
     it('Should to the Small Business use case page by clicking the Small Business\
-      use case block in the Trunking page', async () => {
+ use case block in the Trunking page', async () => {
         const smallBusUseCase = await $('main [href*="voip-for-small-business"]')
         await smallBusUseCase.click()
 
@@ -73,7 +73,7 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
     });
 
     it('Should to the Multi-Cloud use case page by clicking the Multi-Cloud\
-      use case block in the SIP Trunking page', async () => {
+ use case block in the SIP Trunking page', async () => {
         const multiCloudUseCase = await $('[href*="multi-cloud"]')
         await multiCloudUseCase.click()
 

@@ -9,7 +9,7 @@ describe('Going to another page test suite for the Number Lookup product page', 
     });
 
     it('Should to open the Number lookup Owerview doc page from the Number\
-      Lookup product page', async () => {
+ Lookup product page', async () => {
         const exploreDocsBtn = await $('div>[href*="api/v2/number-lookup"]')
         exploreDocsBtn.click()
 
@@ -27,7 +27,7 @@ describe('Going to another page test suite for the Number Lookup product page', 
     });
 
     it('Should to Open the Massaging doc page by clicking "Explore use-case\
-      guides" button on the Number Lookup page', async () => {
+ guides" button on the Number Lookup page', async () => {
         const exploreGuidesBtn = await $('[href*="/docs/v2/messaging"]')
         await exploreGuidesBtn.click()
 
