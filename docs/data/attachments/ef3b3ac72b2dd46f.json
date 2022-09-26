@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"main [href*=\"global-ip\"]\"}\n  (Session info: headless MicrosoftEdge=105.0.1343.42)",
+  "stacktrace": "#0 0x55b5881bf3b3 <unknown>\n#1 0x55b587f940a4 <unknown>\n#2 0x55b587fcf849 <unknown>\n#3 0x55b587fcfa41 <unknown>\n#4 0x55b588001fe4 <unknown>\n#5 0x55b587fecebd <unknown>\n#6 0x55b587ffffb6 <unknown>\n#7 0x55b587feccb3 <unknown>\n#8 0x55b587fc37a3 <unknown>\n#9 0x55b587fc49b5 <unknown>\n#10 0x55b5881fe3e7 <unknown>\n#11 0x55b58820044f <unknown>\n#12 0x55b5881fff1a <unknown>\n#13 0x55b588200a25 <unknown>\n#14 0x55b5881eccbb <unknown>\n#15 0x55b588200d6f <unknown>\n#16 0x55b5881e27fe <unknown>\n#17 0x55b58821b3d8 <unknown>\n#18 0x55b58821b586 <unknown>\n#19 0x55b5882357d5 <unknown>\n#20 0x7f73891d5609 <unknown>\n"
+}

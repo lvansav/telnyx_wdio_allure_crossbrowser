@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "main [href*=\"managed-services-telephony-reseller\"]"
+}

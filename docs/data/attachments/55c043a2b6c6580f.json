@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "header>h2:nth-child(2)"
+}
