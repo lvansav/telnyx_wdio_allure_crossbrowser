@@ -29,3 +29,15 @@ For run without any additional drivers:
 For run in headless mode:
 
     npm run wdio:headless
+
+If you want to use docker on local, you need to use next commands:
+
+    docker-compose -f docker-compose-local.yml up
+    npm run wdio:docker
+
+The commands will start docker containers with Selenium Grid service, you can observe selenium session on the http://localhost:4444 (in basic)
+
+If you want to run tests in the docker contaner to, just use:
+
+    docker-compose up
+

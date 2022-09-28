@@ -13,6 +13,7 @@
         "chromedriver": "^105.0.1",
         "geckodriver": "^3.0.2",
         "wdio-chromedriver-service": "^7.3.2",
+        "wdio-docker-service": "^3.2.1",
         "wdio-edgedriver-service": "^1.2.0",
         "wdio-geckodriver-service": "^3.0.6"
     },
@@ -25,6 +26,7 @@
         "wdio:selenium:standalone": "wdio run ./config/wdio.selenium.stand.conf.js",
         "wdio:number:lookup:product:page": "wdio run ./config/wdio.conf.js --suite numberLookupProdPage",
         "wdio:sip:trunking:product:page": "wdio run ./config/wdio.conf.js --suite sipTrunkingProdPage",
+        "wdio:docker": "wdio run ./config/wdio.docker.conf.js",
         "allure:generate": "npx allure generate allure-results -o allure-report --clean",
         "allure:serve": "allure open allure-report"
     },
