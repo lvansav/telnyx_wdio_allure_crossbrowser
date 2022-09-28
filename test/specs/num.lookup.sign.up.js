@@ -1,4 +1,6 @@
+const helper = require('../../helper/helper')
 const { faker } = require('@faker-js/faker')
+const contact_us_data = helper.parseJsonFile('./environments/contact_us_data.json')
 
 describe('Registration and contact support test suite for the Number Lookup product page', () => {
     beforeEach(async () => {
@@ -44,7 +46,11 @@ button', async () => {
         await belowDocsContactBtn.click()
 
         const reasonOpts = ['Sales-Inquiry', 'Support', 'Legal']
-        const randReason = reasonOpts[Math.floor(Math.random() * 3)]
+        let randReason = reasonOpts[Math.floor(Math.random() * 3)]
+
+        if(contact_us_data.reason !== "Support") {
+            randReason = contact_us_data.reason
+        }
 
         const randFirstName = faker.name.firstName()
         const randLastName = faker.name.lastName()
@@ -66,7 +72,7 @@ button', async () => {
         const numInp = await $('#Phone_Number_Base__c')
         const webSiteInp = await $('#Website')
         const addInfoInp = await $('#Form_Additional_Information__c')
-        const receiveBox = await $('#mktoCheckbox_10173_0')
+        const receiveBox = await $('[name="Subscription_Opt_In__c"]')
         const submitBtn = await $('button.mktoButton')
 
         await reasonSelector.selectByAttribute('value', randReason)
@@ -109,6 +115,7 @@ button', async () => {
         const createAccBtn = await $('[type="submit"]')
         await createAccBtn.click()
         await createAccBtn.click()
+        await createAccBtn.click()
 
         const verifyEmail = await $('//h1/following-sibling::div//strong')
         const resendLink = await $('main button')
@@ -124,7 +131,11 @@ button', async () => {
         await talkExpertsBeloweTryFreeLink.click()
 
         const reasonOpts = ['Sales-Inquiry', 'Support', 'Legal']
-        const randReason = reasonOpts[Math.floor(Math.random() * 3)]
+        let randReason = reasonOpts[Math.floor(Math.random() * 3)]
+
+        if(contact_us_data.reason !== "Support") {
+            randReason = contact_us_data.reason
+        }
 
         const randFirstName = faker.name.firstName()
         const randLastName = faker.name.lastName()
@@ -146,7 +157,7 @@ button', async () => {
         const numInp = await $('#Phone_Number_Base__c')
         const webSiteInp = await $('#Website')
         const addInfoInp = await $('#Form_Additional_Information__c')
-        const receiveBox = await $('#mktoCheckbox_10173_0')
+        const receiveBox = await $('[name="Subscription_Opt_In__c"]')
         const submitBtn = await $('button.mktoButton')
 
         await reasonSelector.selectByAttribute('value', randReason)

@@ -46,7 +46,7 @@ exports.config = {
     }]],
     mochaOpts: {
         ui: 'bdd',
-        timeout: 180000
+        timeout: 120000
     },
     /**
      * Gets executed once before all workers get launched.
@@ -111,11 +111,16 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-        if (!passed) {
-            await browser.takeScreenshot();
+     afterTest: function (
+        test,
+        context,
+        { error, result, duration, passed, retries }
+      ) {
+        // take a screenshot anytime a test fails and throws an error
+        if (error || result || duration || passed || retries) {
+          browser.takeScreenshot(); 
         }
-    },
+      },
 
 
     /**
