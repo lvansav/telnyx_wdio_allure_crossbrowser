@@ -1,4 +1,0 @@
-{
-  "using": "css selector",
-  "value": "div>[href*=\"api/v2/number-lookup\"]"
-}

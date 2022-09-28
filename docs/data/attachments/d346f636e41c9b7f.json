@@ -1,5 +1,0 @@
-{
-  "error": "no such element",
-  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#Phone_Number_Extension__c option:nth-child(14)\"}\n  (Session info: headless chrome=105.0.5195.125)",
-  "stacktrace": "#0 0x561cd39ff693 <unknown>\n#1 0x561cd37f8b0a <unknown>\n#2 0x561cd38315f7 <unknown>\n#3 0x561cd38317c1 <unknown>\n#4 0x561cd3864804 <unknown>\n#5 0x561cd384e94d <unknown>\n#6 0x561cd38624b0 <unknown>\n#7 0x561cd384e743 <unknown>\n#8 0x561cd3824533 <unknown>\n#9 0x561cd3825715 <unknown>\n#10 0x561cd3a4f7bd <unknown>\n#11 0x561cd3a52bf9 <unknown>\n#12 0x561cd3a34f2e <unknown>\n#13 0x561cd3a539b3 <unknown>\n#14 0x561cd3a28e4f <unknown>\n#15 0x561cd3a72ea8 <unknown>\n#16 0x561cd3a73052 <unknown>\n#17 0x561cd3a8d71f <unknown>\n#18 0x7f3a80570609 <unknown>\n"
-}

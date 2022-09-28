@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#Phone_Number_Extension__c option:nth-child(57)\"}\n  (Session info: headless MicrosoftEdge=105.0.1343.42)",
+  "stacktrace": "#0 0x5625a67113a3 <unknown>\n#1 0x5625a64e60a4 <unknown>\n#2 0x5625a6521849 <unknown>\n#3 0x5625a6521a41 <unknown>\n#4 0x5625a6553fe4 <unknown>\n#5 0x5625a653eebd <unknown>\n#6 0x5625a6551fb6 <unknown>\n#7 0x5625a653ecb3 <unknown>\n#8 0x5625a65157a3 <unknown>\n#9 0x5625a65169b5 <unknown>\n#10 0x5625a67503d7 <unknown>\n#11 0x5625a675243f <unknown>\n#12 0x5625a6751f0a <unknown>\n#13 0x5625a6752a15 <unknown>\n#14 0x5625a673ecab <unknown>\n#15 0x5625a6752d5f <unknown>\n#16 0x5625a67347ee <unknown>\n#17 0x5625a676d3c8 <unknown>\n#18 0x5625a676d576 <unknown>\n#19 0x5625a67877c5 <unknown>\n#20 0x7f8905c12609 <unknown>\n"
+}
