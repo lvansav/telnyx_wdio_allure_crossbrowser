@@ -1,5 +1,0 @@
-{
-  "error": "no such element",
-  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[aria-label=\"close and deny\"]\"}\n  (Session info: headless MicrosoftEdge=105.0.1343.42)",
-  "stacktrace": "#0 0x55f0b29e03b3 <unknown>\n#1 0x55f0b27b50a4 <unknown>\n#2 0x55f0b27f0849 <unknown>\n#3 0x55f0b27f0a41 <unknown>\n#4 0x55f0b2822fe4 <unknown>\n#5 0x55f0b280debd <unknown>\n#6 0x55f0b2820fb6 <unknown>\n#7 0x55f0b280dcb3 <unknown>\n#8 0x55f0b27e47a3 <unknown>\n#9 0x55f0b27e59b5 <unknown>\n#10 0x55f0b2a1f3e7 <unknown>\n#11 0x55f0b2a2144f <unknown>\n#12 0x55f0b2a20f1a <unknown>\n#13 0x55f0b2a21a25 <unknown>\n#14 0x55f0b2a0dcbb <unknown>\n#15 0x55f0b2a21d6f <unknown>\n#16 0x55f0b2a037fe <unknown>\n#17 0x55f0b2a3c3d8 <unknown>\n#18 0x55f0b2a3c586 <unknown>\n#19 0x55f0b2a567d5 <unknown>\n#20 0x7f90957ff609 <unknown>\n"
-}

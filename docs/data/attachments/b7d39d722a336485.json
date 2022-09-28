@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "main div:nth-child(2) [href=\"/sign-up\"]"
+}

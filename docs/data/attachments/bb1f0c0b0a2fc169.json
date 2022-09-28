@@ -1,5 +1,0 @@
-{
-  "error": "no such element",
-  "message": "no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//h1/following-sibling::div//strong\"}\n  (Session info: headless chrome=105.0.5195.125)",
-  "stacktrace": "#0 0x562224f3c693 <unknown>\n#1 0x562224d35b0a <unknown>\n#2 0x562224d6e5f7 <unknown>\n#3 0x562224d6e7c1 <unknown>\n#4 0x562224da1804 <unknown>\n#5 0x562224d8b94d <unknown>\n#6 0x562224d9f4b0 <unknown>\n#7 0x562224d8b743 <unknown>\n#8 0x562224d61533 <unknown>\n#9 0x562224d62715 <unknown>\n#10 0x562224f8c7bd <unknown>\n#11 0x562224f8fbf9 <unknown>\n#12 0x562224f71f2e <unknown>\n#13 0x562224f909b3 <unknown>\n#14 0x562224f65e4f <unknown>\n#15 0x562224fafea8 <unknown>\n#16 0x562224fb0052 <unknown>\n#17 0x562224fca71f <unknown>\n#18 0x7f54ac806609 <unknown>\n"
-}

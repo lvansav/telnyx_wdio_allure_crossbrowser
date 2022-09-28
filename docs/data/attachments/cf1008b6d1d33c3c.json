@@ -1,5 +1,0 @@
-{
-  "error": "no such element",
-  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#telnyx-api-reference div>span\"}\n  (Session info: headless MicrosoftEdge=105.0.1343.42)",
-  "stacktrace": "#0 0x55d8f92d43b3 <unknown>\n#1 0x55d8f90a90a4 <unknown>\n#2 0x55d8f90e4849 <unknown>\n#3 0x55d8f90e4a41 <unknown>\n#4 0x55d8f9116fe4 <unknown>\n#5 0x55d8f9101ebd <unknown>\n#6 0x55d8f9114fb6 <unknown>\n#7 0x55d8f9101cb3 <unknown>\n#8 0x55d8f90d87a3 <unknown>\n#9 0x55d8f90d99b5 <unknown>\n#10 0x55d8f93133e7 <unknown>\n#11 0x55d8f931544f <unknown>\n#12 0x55d8f9314f1a <unknown>\n#13 0x55d8f9315a25 <unknown>\n#14 0x55d8f9301cbb <unknown>\n#15 0x55d8f9315d6f <unknown>\n#16 0x55d8f92f77fe <unknown>\n#17 0x55d8f93303d8 <unknown>\n#18 0x55d8f9330586 <unknown>\n#19 0x55d8f934a7d5 <unknown>\n#20 0x7fa3b2044609 <unknown>\n"
-}

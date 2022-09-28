@@ -1,4 +1,0 @@
-{
-  "using": "css selector",
-  "value": "form>div:nth-child(2) input"
-}
