@@ -1,6 +1,7 @@
 const helper = require('../../helper/helper')
 const { faker } = require('@faker-js/faker')
 const contact_us_data = helper.parseJsonFile('./environments/contact_us_data.json')
+const registration_data = helper.parseJsonFile('./environments/registration_data.json')
 
 describe('Registration and contact support test suite for the SIP Trunking page', () => {
     beforeEach( async () => {
@@ -15,7 +16,12 @@ describe('Registration and contact support test suite for the SIP Trunking page'
     it('Should sign up from the SIP Trunking product page', async () => {
         const getFreeBtn = await $('div:nth-child(4) [href="/sign-up"]')
         await getFreeBtn.click()
-        const randEmail = faker.internet.email()
+
+        let randEmail = faker.internet.email()
+        
+        if(!registration_data.email) {
+            randEmail = faker.internet.exampleEmail()
+        }
         
         const emailInp = await $('#email')
         const nameInp = await $('#full_name')

@@ -8,7 +8,7 @@ For start you need to follow next steps:
 
 #### Content
 
-The project has test cases for SIP Trunking product page and Number Lookup product page
+The project has test cases for SIP Trunking product page and Number Lookup product page with cross browser testing and allure reporter 
 
 #### Available scripts
 
@@ -37,7 +37,13 @@ If you want to use docker on local, you need to use next commands:
 
 The commands will start docker containers with Selenium Grid service, you can observe selenium session on the http://localhost:4444 (in basic)
 
-If you want to run tests in the docker contaner to, just use:
+If you want to run tests in the docker container too, just use:
 
     docker-compose up
 
+For observe the html reporter, you need to use below commands:
+
+    npm run allure:generate
+    npm run allure
+
+If you want change te test data, you can use `npm run config:invalid:contact:us` or `npm run config:invalid:registration` (both using is possible) for the invalid data and `npm run config:valid:contact:us` or `npm run config:valid:registration` before the test run

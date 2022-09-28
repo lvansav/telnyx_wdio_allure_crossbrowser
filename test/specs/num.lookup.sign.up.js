@@ -1,6 +1,7 @@
 const helper = require('../../helper/helper')
 const { faker } = require('@faker-js/faker')
 const contact_us_data = helper.parseJsonFile('./environments/contact_us_data.json')
+const registration_data = helper.parseJsonFile('./environments/registration_data.json')
 
 describe('Registration and contact support test suite for the Number Lookup product page', () => {
     beforeEach(async () => {
@@ -16,7 +17,12 @@ describe('Registration and contact support test suite for the Number Lookup prod
 button', async () => {
         const aboveSignUpBtn = await $('main div:nth-child(4) [href="/sign-up"]')
         await aboveSignUpBtn.click()
-        const randEmail = faker.internet.email()
+
+        let randEmail = faker.internet.email()
+        
+        if(!registration_data.email) {
+            randEmail = faker.internet.exampleEmail()
+        }
 
         const emailInp = await $('#email')
         const nameInp = await $('#full_name')
@@ -100,7 +106,12 @@ button', async () => {
  Free" button', async () => {
         const tryForFreeBtn = await $('div:nth-child(7) [href="/sign-up"]')
         await tryForFreeBtn.click()
-        const randEmail = faker.internet.email()
+
+        let randEmail = faker.internet.email()
+        
+        if(!registration_data.email) {
+            randEmail = faker.internet.exampleEmail()
+        }
 
         const emailInp = await $('#email')
         const nameInp = await $('#full_name')

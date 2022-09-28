@@ -111,17 +111,21 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-     afterTest: function (
-        test,
-        context,
-        { error, result, duration, passed, retries }
-      ) {
-        // take a screenshot anytime a test fails and throws an error
-        if (error || result || duration || passed || retries) {
-          browser.takeScreenshot(); 
+    afterTest: function (
+    test,
+    context,
+    { error, result, duration, passed, retries }
+    ) {
+    // take a screenshot anytime a test fails and throws an error
+    if (error || result || duration || passed || retries) {
+        browser.takeScreenshot(); 
+    }
+    },
+    afterCommand: function (commandName, args, result, error) {
+        if(result.error !== undefined) {
+            browser.takeScreenshot()
         }
-      },
-
+    },
 
     /**
      * Hook that gets executed after the suite has ended
