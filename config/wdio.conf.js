@@ -1,3 +1,5 @@
+const { page } = require('../test/pageobjects/page')
+
 exports.config = {
     specs: [
         './test/specs/**/*.js'
@@ -95,11 +97,7 @@ exports.config = {
      */
     beforeHook: async function (test, context) {
         browser.setWindowRect(0, 0, 1920, 1080)
-        await browser.url('https://telnyx.com/')
-        if (await $('[aria-label="close and deny"]').isDisplayed()) {
-            const closeCookieBtn = await $('[aria-label="close and deny"]')
-            await closeCookieBtn.click()
-        }
+        await page.closeCookieAccertPopup()
     },
     /**
      * Function to be executed after a test (in Mocha/Jasmine only)

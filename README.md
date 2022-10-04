@@ -44,6 +44,6 @@ If you want to run tests in the docker container too, just use:
 For observe the html reporter, you need to use below commands:
 
     npm run allure:generate
-    npm run allure
+    npm run allure:serve
 
-If you want change te test data, you can use `npm run config:invalid:contact:us` or `npm run config:invalid:registration` (both using is possible) for the invalid data and `npm run config:valid:contact:us` or `npm run config:valid:registration` before the test run
+If you want change te test data, you can use `npm run config:invalid:contact:us` or `npm run config:invalid:registration` (both using is possible) for invalid data setting and `npm run config:valid:contact:us` or `npm run config:valid:registration` for valid data setting before the test run. Bash is requaired for the using environments presets.
