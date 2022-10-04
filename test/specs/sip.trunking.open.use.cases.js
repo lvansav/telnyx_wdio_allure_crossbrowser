@@ -1,33 +1,23 @@
+const { mainPage } = require("../pageobjects/main.page");
+const { sipTrunkingProdPage } = require("../pageobjects/sip.trunk.prod.page");
+const { ucaasCasePage } = require('../pageobjects/sip.trunk.use.case.pages')
+
 describe('Opening use cases test suite for the SIP Trunking page', () => {
     beforeEach( async () => {
-        const headerHidenLink = await $('header div>span>a')
-        await headerHidenLink.moveTo()
-        const prodDrop = await $('header ul:nth-child(1) li:nth-child(1)')
-        await prodDrop.moveTo()
-        const sipTrunking = await $('header [href*="sip-trunks"]')
-        await sipTrunking.click()
+        mainPage.headSipTrunkLinkClick()
     });
 
     it('Should to open the UCaaS use case page by clicking the UCaaS use \
  case block in the SIP Trunking page', async () => {
-        const ucaasUseCase = await $('[href="/use-cases/ucaas"]')
-        await ucaasUseCase.click()
-        
-        const ucaasCaseUrl = /use-cases\/ucaas$/
-        const ucaasCasePageTitle = await $('h1 strong')
-        const ucaasPageTitleText = 'UCaaS'
-        const purchaseNumLink = await $('[href*="api/v2/numbers"]')
-        const exploreVideoLink = await $('[href*="api/v2/video"]')
-        const exploreReportsLink = await $('[href*="api/v1/reports"]')
-        const startFreeBtn = await $('main div:nth-child(2)>div>[href="/sign-up"]')
+        await sipTrunkingProdPage.openUcaasUseCase()
 
-        await expect(browser).toHaveUrlContaining(ucaasCaseUrl)
-        await expect(ucaasCasePageTitle).toBeDisplayed()
-        await expect(ucaasCasePageTitle).toHaveText(ucaasPageTitleText)
-        await expect(purchaseNumLink).toBeClickable()
-        await expect(exploreVideoLink).toBeClickable()
-        await expect(exploreReportsLink).toBeClickable()
-        await expect(startFreeBtn).toBeClickable()
+        await expect(browser).toHaveUrlContaining(/use-cases\/ucaas$/)
+        await expect(ucaasCasePage.pageTitle()).toBeDisplayed()
+        await expect(ucaasCasePage.pageTitle()).toHaveText('UCaaS')
+        await expect(ucaasCasePage.purchaseNumLink()).toBeClickable()
+        await expect(ucaasCasePage.exploreVideoLink()).toBeClickable()
+        await expect(ucaasCasePage.exploreReportsLink()).toBeClickable()
+        await expect(ucaasCasePage.startFreeBtn()).toBeClickable()
     });
 
     it('Should to  the Managed Services use case page by clicking the Managed \

@@ -3,21 +3,25 @@ const { Page } = require("./page");
 const aboutNetworkLink = 'main [href*="global-ip"]'
 const seePricingBtn = 'main [href="/pricing/elastic-sip"]'
 const unparalSupLink = '[href*="what-are-the-support-hours"]'
+//Use cases locators
+const ucaasUseCaseBlock = '[href="/use-cases/ucaas"]'
 
 class SipTrunkingProdPage extends Page {
+
     async openAboutNetworkPage () {
-        await $(aboutNetworkLink).scrollIntoView({ block: "center" })
-        await $(aboutNetworkLink).click()
+        await this.openPage(aboutNetworkLink)
     }
 
     async openSipTrunkPricePage () {
-        await $(seePricingBtn).scrollIntoView({ block: "center" })
-        await $(seePricingBtn).click()
+        await this.openPage(seePricingBtn)
     }
 
     async openUnparalSupportPage () {
-        await $(unparalSupLink).scrollIntoView({ block: "center" })
-        await $(unparalSupLink).click()
+        await this.openPage(unparalSupLink)
+    }
+
+    async openUcaasUseCase () {
+        await this.openPage(ucaasUseCaseBlock)
     }
 }
 

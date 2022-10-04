@@ -18,6 +18,11 @@ class Page {
         await $(prodDrop).moveTo()
     }
 
+    async openPage (btn) {
+        await $(btn).scrollIntoView({ block: "center" })
+        await $(btn).click()
+    }
+
     async clickSmth (element) {
         await $(element).click()
     }
