@@ -1,7 +1,7 @@
 const { faker } = require('@faker-js/faker')
 const { mainPage } = require('../pageobjects/main.page')
 const { sipTrunkingProdPage } = require('../pageobjects/sip.trunk.prod.page')
-const { globalIpPage, sipTrunkPricePage } = require('../pageobjects/sip.trunk.addition.pages')
+const { globalIpPage, sipTrunkPricePage, unparalSupportPage } = require('../pageobjects/sip.trunk.addition.pages')
 
 
 describe('Going to another page test suite for the SIP Trunking page', () => {
@@ -38,28 +38,20 @@ describe('Going to another page test suite for the SIP Trunking page', () => {
 
     it('Should to Open the "What are the support hours?" article from\
  the SIP Trunking product page', async () => {
-        const unparalSupportLink = await $('[href*="what-are-the-support-hours"]')
-        await unparalSupportLink.click()
-
-        const articleUrl = /what-are-the-support-hours$/
-        const articleTitle = await $('h1.t__h1')
-        const articleTitleTxt = 'What are the support hours?'
-        const articleAuthor = await $('.avatar span')
-        const articleAuthorTxt = /Telnyx Sales/
-        const supportEmail = await $('.intercom-content-link')
-        const supportEmailTxt = 'support@telnyx.com'
-        const reactionPicker = await $('.intercom-reaction-picker')
-        const reactionsEmoji = await $$('.intercom-reaction')
+        await sipTrunkingProdPage.openUnparalSupportPage()
         
-        await expect(browser).toHaveUrlContaining(articleUrl)
-        await expect(articleTitle).toBeDisplayed()
-        await expect(articleTitle).toHaveText(articleTitleTxt)
-        await expect(articleAuthor).toBeDisplayed()
-        await expect(articleAuthor).toHaveText(articleAuthorTxt)
-        await expect(supportEmail).toBeDisplayed()
-        await expect(supportEmail).toHaveText(supportEmailTxt)
-        await expect(reactionPicker).toBeDisplayed()
-        reactionsEmoji.forEach(async emoji => {
+        await expect(browser).toHaveUrlContaining(/what-are-the-support-hours$/)
+        await expect(unparalSupportPage.articleTitle()).toBeDisplayed()
+        await expect(unparalSupportPage.articleTitle()).toHaveText('What are the support hours?')
+        await expect(unparalSupportPage.articleAuthor()).toBeDisplayed()
+        await expect(unparalSupportPage.articleAuthor()).toHaveText(/Telnyx Sales/)
+        await expect(unparalSupportPage.supportEmail()).toBeDisplayed()
+        await expect(unparalSupportPage.supportEmail()).toHaveText('support@telnyx.com')
+        await expect(unparalSupportPage.reactionPicker()).toBeDisplayed()
+        
+        const emojies = await unparalSupportPage.reactionsEmoji()
+        
+        emojies.forEach(async emoji => {
             await emoji.click()
             await expect(emoji).toHaveAttrContaining('class', 'intercom-reaction-picker-reaction-selected')
         })

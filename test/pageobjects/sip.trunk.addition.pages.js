@@ -47,9 +47,39 @@ class SipTrunkPricePage extends Page {
     }
 }
 
+class UnparalSupportPage extends Page {
+    articleTitleLoc = 'h1.t__h1'
+    articleAuthorLoc = '.avatar span'
+    supportEmailLoc = '.intercom-content-link'
+    reactionPickerLoc = '.intercom-reaction-picker'
+    reactionsEmojiLoc = '.intercom-reaction'
+
+    async articleTitle () {
+        return await $(this.articleTitleLoc)
+    }
+
+    async articleAuthor () {
+        return await $(this.articleAuthorLoc)
+    }
+
+    async supportEmail () {
+        return await $(this.supportEmailLoc)
+    }
+
+    async reactionPicker () {
+        return await $(this.reactionPickerLoc)
+    }
+
+    async reactionsEmoji () {
+        return await $$(this.reactionsEmojiLoc)
+    }
+}
+
 module.exports = {
     GlobalIpPage: GlobalIpPage,
     globalIpPage: new GlobalIpPage,
     SipTrunkPricePage: SipTrunkPricePage,
-    sipTrunkPricePage: new SipTrunkPricePage
+    sipTrunkPricePage: new SipTrunkPricePage,
+    UnparalSupportPage: UnparalSupportPage,
+    unparalSupportPage: new UnparalSupportPage
 }
