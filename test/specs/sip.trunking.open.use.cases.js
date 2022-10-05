@@ -1,7 +1,8 @@
 const { mainPage } = require("../pageobjects/main.page");
 const { sipTrunkingProdPage } = require("../pageobjects/sip.trunk.prod.page");
 const { ucaasCasePage, 
-        managedServCasePage } = require('../pageobjects/sip.trunk.use.case.pages')
+        managedServCasePage,
+        smallBussCasePage } = require('../pageobjects/sip.trunk.use.case.pages')
 
 describe('Opening use cases test suite for the SIP Trunking page', () => {
     beforeEach( async () => {
@@ -33,26 +34,17 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
         await expect(managedServCasePage.seeApiPricingLink()).toBeClickable()
     });
 
-    it.open('Should to the Small Business use case page by clicking the Small Business\
+    it.only('Should to the Small Business use case page by clicking the Small Business\
  use case block in the Trunking page', async () => {
-        const smallBusUseCase = await $('main [href*="voip-for-small-business"]')
-        await smallBusUseCase.click()
+        await sipTrunkingProdPage.openSmallBusUseCase()
 
-        const smallBusUrl = /use-cases\/voip-for-small-business$/
-        const smallBusPageTitle = await $('h1>span')
-        const smallBusTitleText = 'The Best VoIP Solution for Small Business'
-        const voipVsLandlinePageSubtitle = await $('div:nth-child(3) header h2')
-        const letsTalkBtn = await $('main [href="/contact-us"]')
-        const startBuldingBtn = await $('div:nth-child(9) [href="/sign-up"]')
-        const signUpFor10Btn = await $('div:nth-child(10) [href="/sign-up"]')
-
-        await expect(browser).toHaveUrlContaining(smallBusUrl)
-        await expect(smallBusPageTitle).toBeDisplayed()
-        await expect(smallBusPageTitle).toHaveText(smallBusTitleText)
-        await expect(voipVsLandlinePageSubtitle).toBeDisplayed()
-        await expect(letsTalkBtn).toBeClickable()
-        await expect(startBuldingBtn).toBeClickable()
-        await expect(signUpFor10Btn).toBeClickable()
+        await expect(browser).toHaveUrlContaining(/use-cases\/voip-for-small-business$/)
+        await expect(smallBussCasePage.pageTitle()).toBeDisplayed()
+        await expect(smallBussCasePage.pageTitle()).toHaveText('The Best VoIP Solution for Small Business')
+        await expect(smallBussCasePage.voipVsLandlinePageSubtitle()).toBeDisplayed()
+        await expect(smallBussCasePage.letsTalkBtn()).toBeClickable()
+        await expect(smallBussCasePage.startBuldingBtn()).toBeClickable()
+        await expect(smallBussCasePage.signUpFor10Btn()).toBeClickable()
     });
 
     it('Should to the Multi-Cloud use case page by clicking the Multi-Cloud\

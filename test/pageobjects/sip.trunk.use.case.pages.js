@@ -51,9 +51,39 @@ class ManagedServCasePage extends Page {
     }
 }
 
+class SmallBussCasePage extends Page {
+    pageTitleLoc = 'h1>span'
+    voipVsLandlinePageSubtitleLoc = 'div:nth-child(3) header h2'
+    letsTalkBtnLoc = 'main [href="/contact-us"]'
+    startBuldingBtnLoc = 'div:nth-child(9) [href="/sign-up"]'
+    signUpFor10BtnLoc = 'div:nth-child(10) [href="/sign-up"]'
+
+    async pageTitle () {
+        return await $(this.pageTitleLoc)
+    }
+
+    async voipVsLandlinePageSubtitle () {
+        return await $(this.voipVsLandlinePageSubtitleLoc)
+    }
+
+    async letsTalkBtn () {
+        return await $(this.letsTalkBtnLoc)
+    }
+
+    async startBuldingBtn () {
+        return await $(this.startBuldingBtnLoc)
+    }
+
+    async signUpFor10Btn () {
+        return await $(this.signUpFor10BtnLoc)
+    }
+}
+
 module.exports = {
     UcaasCasePage: UcaasCasePage,
     ucaasCasePage: new UcaasCasePage,
     ManagedServCasePage: ManagedServCasePage,
-    managedServCasePage: new ManagedServCasePage
+    managedServCasePage: new ManagedServCasePage,
+    SmallBussCasePage: SmallBussCasePage,
+    smallBussCasePage: new SmallBussCasePage
 }

@@ -6,6 +6,7 @@ const unparalSupLink = '[href*="what-are-the-support-hours"]'
 //Use cases locators
 const ucaasUseCaseBlock = '[href="/use-cases/ucaas"]'
 const managedServCaseBlock = 'main [href*="managed-services-telephony-reseller"]'
+const smallBusCaseBlock = 'main [href*="voip-for-small-business"]'
 
 class SipTrunkingProdPage extends Page {
 
@@ -27,6 +28,10 @@ class SipTrunkingProdPage extends Page {
 
     async openManagedServUseCase () {
         await this.openPage(managedServCaseBlock)
+    }
+
+    async openSmallBusUseCase () {
+        await this.openPage(smallBusCaseBlock)
     }
 }
 
