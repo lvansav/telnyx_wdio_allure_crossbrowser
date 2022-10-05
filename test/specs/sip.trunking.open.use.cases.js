@@ -2,7 +2,8 @@ const { mainPage } = require("../pageobjects/main.page");
 const { sipTrunkingProdPage } = require("../pageobjects/sip.trunk.prod.page");
 const { ucaasCasePage, 
         managedServCasePage,
-        smallBussCasePage } = require('../pageobjects/sip.trunk.use.case.pages')
+        smallBussCasePage,
+        multiCloudCasePage } = require('../pageobjects/sip.trunk.use.case.pages')
 
 describe('Opening use cases test suite for the SIP Trunking page', () => {
     beforeEach( async () => {
@@ -34,7 +35,7 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
         await expect(managedServCasePage.seeApiPricingLink()).toBeClickable()
     });
 
-    it.only('Should to the Small Business use case page by clicking the Small Business\
+    it('Should to the Small Business use case page by clicking the Small Business\
  use case block in the Trunking page', async () => {
         await sipTrunkingProdPage.openSmallBusUseCase()
 
@@ -47,29 +48,21 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
         await expect(smallBussCasePage.signUpFor10Btn()).toBeClickable()
     });
 
-    it('Should to the Multi-Cloud use case page by clicking the Multi-Cloud\
+    it.only('Should to the Multi-Cloud use case page by clicking the Multi-Cloud\
  use case block in the SIP Trunking page', async () => {
-        const multiCloudUseCase = await $('[href*="multi-cloud"]')
-        await multiCloudUseCase.click()
+        await sipTrunkingProdPage.openMultCloudUseCase()
 
-        const multiCloudUrl = /use-cases\/multi-cloud$/
-        const multiCloudPageTitle = await $('h1>span')
-        const multiCloudTitleText = 'Multicloud'
-        const exploreDocsLink = await $('[href*="api/v1/networking"]')
-        const downloadSheetLink = await $('main [href*="image"]')
-        const tryFreeBtn = await $('div:nth-child(14) [href="/sign-up"]')
-
-        await expect(browser).toHaveUrlContaining(multiCloudUrl)
-        await expect(multiCloudPageTitle).toBeDisplayed()
-        await expect(multiCloudPageTitle).toHaveText(multiCloudTitleText)
+        await expect(browser).toHaveUrlContaining(/use-cases\/multi-cloud$/)
+        await expect(multiCloudCasePage.pageTitle()).toBeDisplayed()
+        await expect(multiCloudCasePage.pageTitle()).toHaveText('Multicloud')
         
-        for (let i = 0; i < 0; i++) {
-            let buildProd = await $(`main li:nth-child(${i}) [href*="products"]`)
+        for (let i = 1; i < 5; i++) {
+            let buildProd = multiCloudCasePage.buildProduct(i)
             await expect(buildProd).toBeClickable()
         }
 
-        await expect(exploreDocsLink).toBeClickable()
-        await expect(downloadSheetLink).toBeClickable()
-        await expect(tryFreeBtn).toBeClickable()
+        await expect(multiCloudCasePage.exploreDocLink()).toBeClickable()
+        await expect(multiCloudCasePage.downloadSheetLink()).toBeClickable()
+        await expect(multiCloudCasePage.tryFreeBtn()).toBeClickable()
       });
 })

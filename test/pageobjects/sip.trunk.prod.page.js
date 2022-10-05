@@ -7,6 +7,7 @@ const unparalSupLink = '[href*="what-are-the-support-hours"]'
 const ucaasUseCaseBlock = '[href="/use-cases/ucaas"]'
 const managedServCaseBlock = 'main [href*="managed-services-telephony-reseller"]'
 const smallBusCaseBlock = 'main [href*="voip-for-small-business"]'
+const multiCloudCaseBlock = '[href*="multi-cloud"]'
 
 class SipTrunkingProdPage extends Page {
 
@@ -32,6 +33,10 @@ class SipTrunkingProdPage extends Page {
 
     async openSmallBusUseCase () {
         await this.openPage(smallBusCaseBlock)
+    }
+
+    async openMultCloudUseCase () {
+        await this.openPage(multiCloudCaseBlock)
     }
 }
 

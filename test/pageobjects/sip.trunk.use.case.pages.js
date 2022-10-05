@@ -79,11 +79,45 @@ class SmallBussCasePage extends Page {
     }
 }
 
+class MultiCloudCasePage extends Page {
+    pageTitleLoc = 'h1>span'
+    exploreDocsLinkLoc = '[href*="api/v1/networking"]'
+    downloadSheetLinkLoc = 'main [href*="image"]'
+    tryFreeBtnLoc = 'div:nth-child(14) [href="/sign-up"]'
+    buildProd = {
+        firstHalf: 'main li:nth-child(',
+        secHalf: ') [href*="products"]'
+    }
+
+    async pageTitle () {
+        return await $(this.pageTitleLoc)
+    }
+
+    async exploreDocLink () {
+        return await $(this.exploreDocsLinkLoc)
+    }
+
+    async downloadSheetLink () {
+        return await $(this.downloadSheetLinkLoc)
+    }
+
+    async tryFreeBtn () {
+        return await $(this.tryFreeBtnLoc)
+    }
+
+    async buildProduct (prodIndex) {
+        let buildProd = `${this.buildProd.firstHalf}${prodIndex}${this.buildProd.secHalf}`
+        return await $(buildProd)
+    }
+}
+
 module.exports = {
     UcaasCasePage: UcaasCasePage,
     ucaasCasePage: new UcaasCasePage,
     ManagedServCasePage: ManagedServCasePage,
     managedServCasePage: new ManagedServCasePage,
     SmallBussCasePage: SmallBussCasePage,
-    smallBussCasePage: new SmallBussCasePage
+    smallBussCasePage: new SmallBussCasePage,
+    MultiCloudCasePage: MultiCloudCasePage,
+    multiCloudCasePage: new MultiCloudCasePage
 }
