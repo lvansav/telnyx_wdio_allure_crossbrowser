@@ -2,6 +2,7 @@ const closeAssertCookieBtn = '[aria-label="close and deny"]'
 const headerHidenLink = 'header div>span>a'
 const prodDrop = 'header ul:nth-child(1) li:nth-child(1)'
 const headSipTrunking = 'header [href*="sip-trunks"]'
+const headNumLookup = 'header [href="/number-lookup"]'
 
 class Page {
 
@@ -30,6 +31,11 @@ class Page {
     async headSipTrunkLinkClick () {
         await this.openProdDropdown()
         await this.clickSmth(headSipTrunking)
+    }
+
+    async headNumLookupLinkClick () {
+        await this.openProdDropdown()
+        await this.clickSmth(headNumLookup)
     }
 }
 
