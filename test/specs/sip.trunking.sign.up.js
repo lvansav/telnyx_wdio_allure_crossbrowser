@@ -2,47 +2,33 @@ const helper = require('../../helper/helper')
 const { faker } = require('@faker-js/faker')
 const contact_us_data = helper.parseJsonFile('./environments/contact_us_data.json')
 const registration_data = helper.parseJsonFile('./environments/registration_data.json')
+const { mainPage } = require('../pageobjects/main.page')
+const { sipTrunkingProdPage } = require('../pageobjects/sip.trunk.prod.page')
+const { signUpPage, verifyEmailPage }  =require('../pageobjects/sign.up.pages')
 
 describe('Registration and contact support test suite for the SIP Trunking page', () => {
     beforeEach( async () => {
-        const headerHidenLink = await $('header div>span>a')
-        await headerHidenLink.moveTo()
-        const prodDrop = await $('header ul:nth-child(1) li:nth-child(1)')
-        await prodDrop.moveTo()
-        const sipTrunking = await $('header [href*="sip-trunks"]')
-        await sipTrunking.click()
+        await mainPage.headSipTrunkLinkClick()
     });
     
     it('Should sign up from the SIP Trunking product page', async () => {
-        const getFreeBtn = await $('div:nth-child(4) [href="/sign-up"]')
-        await getFreeBtn.click()
+        await sipTrunkingProdPage.getFreeBtnClick()
 
         let randEmail = faker.internet.email()
-        
-        if(!registration_data.email) {
+
+        if(!registration_data.email)
             randEmail = faker.internet.exampleEmail()
-        }
         
-        const emailInp = await $('#email')
-        const nameInp = await $('#full_name')
-        const passInp = await $('#password')
-        const termsBox = await $('[aria-labelledby="terms-label"]')
+        await signUpPage.fillInAllFields(
+            randEmail,
+            faker.name.fullName(),
+            faker.internet.password(30, false, /[!-}]/, '!1So')
+        )
 
-        await emailInp.addValue(randEmail)
-        await nameInp.addValue(faker.name.fullName())
-        await passInp.addValue(faker.internet.password(30, false, /[!-}]/, '!1So'))
-        await termsBox.click()
-
-        const createAccBtn = await $('[type="submit"]')
-        await createAccBtn.click()
-        await createAccBtn.click()
-        await createAccBtn.click()
-
-        const verifyEmail = await $('//h1/following-sibling::div//strong')
-        const resendLink = await $('main button')
+        await signUpPage.clickSubmitBtn()
         
-        await expect(verifyEmail).toHaveText(randEmail)
-        await expect(resendLink).toBeDisplayed()
+        await expect(verifyEmailPage.verifyEmail()).toHaveText(randEmail)
+        await expect(verifyEmailPage.resendLink()).toBeDisplayed()
     });
 
     it('Should get talking to an experts from the SIP Trunking product page', async () => {

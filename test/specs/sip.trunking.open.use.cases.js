@@ -48,7 +48,7 @@ describe('Opening use cases test suite for the SIP Trunking page', () => {
         await expect(smallBussCasePage.signUpFor10Btn()).toBeClickable()
     });
 
-    it.only('Should to the Multi-Cloud use case page by clicking the Multi-Cloud\
+    it('Should to the Multi-Cloud use case page by clicking the Multi-Cloud\
  use case block in the SIP Trunking page', async () => {
         await sipTrunkingProdPage.openMultCloudUseCase()
 

@@ -1,5 +1,6 @@
 const { Page } = require("./page");
 
+//additional pages locators
 const aboutNetworkLink = 'main [href*="global-ip"]'
 const seePricingBtn = 'main [href="/pricing/elastic-sip"]'
 const unparalSupLink = '[href*="what-are-the-support-hours"]'
@@ -8,6 +9,8 @@ const ucaasUseCaseBlock = '[href="/use-cases/ucaas"]'
 const managedServCaseBlock = 'main [href*="managed-services-telephony-reseller"]'
 const smallBusCaseBlock = 'main [href*="voip-for-small-business"]'
 const multiCloudCaseBlock = '[href*="multi-cloud"]'
+//registration locators
+const getFreeBtn = 'div:nth-child(4) [href="/sign-up"]'
 
 class SipTrunkingProdPage extends Page {
 
@@ -37,6 +40,10 @@ class SipTrunkingProdPage extends Page {
 
     async openMultCloudUseCase () {
         await this.openPage(multiCloudCaseBlock)
+    }
+
+    async getFreeBtnClick () {
+        await this.openPage(getFreeBtn)
     }
 }
 
