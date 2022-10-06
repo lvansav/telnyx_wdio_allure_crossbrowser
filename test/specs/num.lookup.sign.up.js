@@ -79,35 +79,23 @@ button', async () => {
 
     it('Should to sign up from the Number Lookup page by the "Try for\
  Free" button', async () => {
-        const tryForFreeBtn = await $('div:nth-child(7) [href="/sign-up"]')
-        await tryForFreeBtn.click()
+        await numLookupProdPage.tryForFreeBtnClick()
 
         let randEmail = faker.internet.email()
-        
-        if(!registration_data.email) {
+
+        if(!registration_data.email)
             randEmail = faker.internet.exampleEmail()
-        }
-
-        const emailInp = await $('#email')
-        const nameInp = await $('#full_name')
-        const passInp = await $('#password')
-        const termsBox = await $('[aria-labelledby="terms-label"]')
-
-        await emailInp.addValue(randEmail)
-        await nameInp.addValue(faker.name.fullName())
-        await passInp.addValue(faker.internet.password(30, false, /[!-}]/, '!1So'))
-        await termsBox.click()
-
-        const createAccBtn = await $('[type="submit"]')
-        await createAccBtn.click()
-        await createAccBtn.click()
-        await createAccBtn.click()
-
-        const verifyEmail = await $('//h1/following-sibling::div//strong')
-        const resendLink = await $('main button')
         
-        await expect(verifyEmail).toHaveText(randEmail)
-        await expect(resendLink).toBeDisplayed()
+        await signUpPage.fillInAllFields(
+            randEmail,
+            faker.name.fullName(),
+            faker.internet.password(30, false, /[!-}]/, '!1So')
+        )
+
+        await signUpPage.clickSubmitBtn()
+        
+        await expect(verifyEmailPage.verifyEmail()).toHaveText(randEmail)
+        await expect(verifyEmailPage.resendLink()).toBeDisplayed()
     });
 
     it('Should to get talking to an experts from the Number Lookup\
