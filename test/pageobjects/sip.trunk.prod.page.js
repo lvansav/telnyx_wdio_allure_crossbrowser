@@ -12,6 +12,7 @@ const multiCloudCaseBlock = '[href*="multi-cloud"]'
 //registration locators
 const getFreeBtn = 'div:nth-child(4) [href="/sign-up"]'
 const talkExpertsLink = 'div:nth-child(4) [href*="contact-us"]'
+const scheduleLink = 'header span>[href*="contact-us"]'
 
 class SipTrunkingProdPage extends Page {
 
@@ -49,6 +50,10 @@ class SipTrunkingProdPage extends Page {
 
     async talkExpertsLinkClick () {
         await this.openPage(talkExpertsLink)
+    }
+
+    async scheduleLinkClick () {
+        await this.openPage(scheduleLink)
     }
 }
 
