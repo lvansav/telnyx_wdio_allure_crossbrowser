@@ -74,7 +74,7 @@ class SmsMarketCasePage extends Page {
     }
 }
 
-class CallTrackCasePage extends Page () {
+class CallTrackCasePage extends Page {
     callTrackPageTitle = 'h1>span'
     gainInsightChannelLoc = 'header>h2:nth-child(2)'
     seeAllProdLinkLoc = 'main [href="/products"]'

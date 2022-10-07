@@ -10,7 +10,9 @@ const contactCenterCaseBlock = 'main [href*="contact-center"]'
 const twoFactAuthCaseBlock = "[href*='/two-factor-authentication']"
 const smsMarketCaseBlock = '[href*="/sms-marketing"]'
 const callTrackCaseBlock = 'main [href*="/call-tracking"]'
-
+//additional pages locators
+const exploreDocsBtn = 'div>[href*="api/v2/number-lookup"]'
+const exploreGuidesBtn = '[href*="/docs/v2/messaging"]'
 
 class NumLookupProdPage extends Page {
     async aboveSignUpBtnClick () {
@@ -43,6 +45,14 @@ class NumLookupProdPage extends Page {
 
     async openCallTrackCasePage () {
         await this.openPage(callTrackCaseBlock)
+    }
+
+    async openNumLookupOverviewDocPage () {
+        await this.openPage(exploreDocsBtn)
+    }
+
+    async openMsgDocPage () {
+        await this.openPage(exploreGuidesBtn)
     }
 }
 
