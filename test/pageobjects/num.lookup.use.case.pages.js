@@ -51,9 +51,34 @@ class TwoFactAuthCasePage extends Page {
     }
 }
 
+class SmsMarketCasePage extends Page {
+    smsMarketPageTitle = 'h1>span'
+    smsMarketPlatformSubtitleLoc = 'header>h2:nth-child(2)'
+    seeAllProdLinkLoc = 'main [href="/products"]'
+    tryItFreeBtnLoc = 'div:nth-child(7) [href="/sign-up"]'
+
+    async pageTitle () {
+        return await $(this.smsMarketPageTitle)
+    }
+
+    async smsMarketPlatformSubtitle () {
+        return await $(this.smsMarketPlatformSubtitleLoc)
+    }
+
+    async seeAllProdLink () {
+        return await $(this.seeAllProdLinkLoc)
+    }
+
+    async tryItFreeBtn () {
+        return await $(this.tryItFreeBtnLoc)
+    }
+}
+
 module.exports = {
     ContactCenterCasePage: ContactCenterCasePage,
     contactCenterCasePage: new ContactCenterCasePage,
     TwoFactAuthCasePage: TwoFactAuthCasePage,
-    twoFactAuthCasePage: new TwoFactAuthCasePage
+    twoFactAuthCasePage: new TwoFactAuthCasePage,
+    SmsMarketCasePage: SmsMarketCasePage,
+    smsMarketCasePage: new SmsMarketCasePage
 }

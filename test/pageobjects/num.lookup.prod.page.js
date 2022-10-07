@@ -8,6 +8,8 @@ const talkExpertsBelowTryFreeLink = 'div:nth-child(7) [href*="/contact-us"]'
 //use cases locators
 const contactCenterCaseBlock = 'main [href*="contact-center"]'
 const twoFactAuthCaseBlock = "[href*='/two-factor-authentication']"
+const smsMarketCaseBlock = '[href*="/sms-marketing"]'
+
 
 class NumLookupProdPage extends Page {
     async aboveSignUpBtnClick () {
@@ -32,6 +34,10 @@ class NumLookupProdPage extends Page {
 
     async openTwoFactAuthCaseBlock () {
         await this.openPage(twoFactAuthCaseBlock)
+    }
+
+    async openSmsMarketCasePage () {
+        await this.openPage(smsMarketCaseBlock)
     }
 }
 

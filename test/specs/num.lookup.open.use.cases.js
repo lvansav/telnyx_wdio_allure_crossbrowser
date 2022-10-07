@@ -1,7 +1,8 @@
 const { mainPage } = require('../pageobjects/main.page')
 const { numLookupProdPage } = require('../pageobjects/num.lookup.prod.page')
 const { contactCenterCasePage,
-        twoFactAuthCasePage } = require('../pageobjects/num.lookup.use.case.pages')
+        twoFactAuthCasePage,
+        smsMarketCasePage } = require('../pageobjects/num.lookup.use.case.pages')
 
 
 describe('Opening use cases test suite for the Number Lookup product page', () => {
@@ -36,24 +37,15 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
 
     it('Should to open the SMS Marketing use case page by clicking the\
  SMS Marketing use case block in the Number Lookup product page', async () => {
-        const smsMarketingUseCase = await $('[href*="/sms-marketing"]')
-        await smsMarketingUseCase.click()
+        await numLookupProdPage.openSmsMarketCasePage()
 
-        const smsMarketCaseUrl = /use-cases\/sms-marketing$/
-        const smsMarketPageTitle = await $('h1>span')
-        const smsMarketTitleTxt = 'SMS Marketing Software API'
-        const smsMarketPlatformSubtitle = await $('header>h2:nth-child(2)')
-        const smsMarketPlatformSubtitleTxt = 'SMS Marketing Platform that Delivers'
-        const seeAllProdLink = await $('main [href="/products"]')
-        const tryItFreeBtn = await $('div:nth-child(7) [href="/sign-up"]')
-
-        await expect(browser).toHaveUrlContaining(smsMarketCaseUrl)
-        await expect(smsMarketPageTitle).toBeDisplayed()
-        await expect(smsMarketPageTitle).toHaveText(smsMarketTitleTxt)
-        await expect(smsMarketPlatformSubtitle).toBeDisplayed()
-        await expect(smsMarketPlatformSubtitle).toHaveText(smsMarketPlatformSubtitleTxt)
-        await expect(seeAllProdLink).toBeClickable()
-        await expect(tryItFreeBtn).toBeClickable()
+        await expect(browser).toHaveUrlContaining(/use-cases\/sms-marketing$/)
+        await expect(smsMarketCasePage.pageTitle()).toBeDisplayed()
+        await expect(smsMarketCasePage.pageTitle()).toHaveText('SMS Marketing Software API')
+        await expect(smsMarketCasePage.smsMarketPlatformSubtitle()).toBeDisplayed()
+        await expect(smsMarketCasePage.smsMarketPlatformSubtitle()).toHaveText('SMS Marketing Platform that Delivers')
+        await expect(smsMarketCasePage.seeAllProdLink()).toBeClickable()
+        await expect(smsMarketCasePage.tryItFreeBtn()).toBeClickable()
     });
 
     it('Should to open the Call Tracking use case page by clicking the\
