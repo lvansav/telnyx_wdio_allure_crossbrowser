@@ -33,7 +33,27 @@ class ContactCenterCasePage {
     }
 }
 
+class TwoFactAuthCasePage extends Page {
+    pageTitleLoc = 'h1 span'
+    flexPrivatNetSubtitleLoc = 'header h2:nth-child(2)'
+    tryItFreeBtnLoc = 'div:nth-child(7) [href="/sign-up"]'
+
+    async pageTitle () {
+        return await $(this.pageTitleLoc)
+    }
+
+    async flexPrivatNetSubtitle () {
+        return await $(this.flexPrivatNetSubtitleLoc)
+    }
+
+    async tryItFreeBtn () {
+        return await $(this.tryItFreeBtnLoc)
+    }
+}
+
 module.exports = {
     ContactCenterCasePage: ContactCenterCasePage,
-    contactCenterCasePage: new ContactCenterCasePage
+    contactCenterCasePage: new ContactCenterCasePage,
+    TwoFactAuthCasePage: TwoFactAuthCasePage,
+    twoFactAuthCasePage: new TwoFactAuthCasePage
 }

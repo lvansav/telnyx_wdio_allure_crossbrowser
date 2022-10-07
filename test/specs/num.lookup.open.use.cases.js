@@ -1,6 +1,7 @@
 const { mainPage } = require('../pageobjects/main.page')
 const { numLookupProdPage } = require('../pageobjects/num.lookup.prod.page')
-const { contactCenterCasePage } = require('../pageobjects/num.lookup.use.case.pages')
+const { contactCenterCasePage,
+        twoFactAuthCasePage } = require('../pageobjects/num.lookup.use.case.pages')
 
 
 describe('Opening use cases test suite for the Number Lookup product page', () => {
@@ -23,22 +24,14 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
 
     it('Should to open the Two-Factor Authentication use case page by clicking the\
  Two-Factor Authentication use case block in the Number Lookup product page', async () => {
-        const twoFactAuthUseCase = await $("[href*='/two-factor-authentication']")
-        await twoFactAuthUseCase.click()
+        await numLookupProdPage.openTwoFactAuthCaseBlock()
 
-        const twoFactAuthUrl = /use-cases\/two-factor-authentication$/
-        const twoFactPageTitle = await $('h1 span')
-        const twoFactTitleTxt = 'Two Factor Authentication'
-        const flexPrivatNetSubtitle = await $('header h2:nth-child(2)')
-        const flexPrivateSubtitleTxt = 'Flexible APIs over a private IP network'
-        const tryItFreeBtn = await $('div:nth-child(7) [href="/sign-up"]')
-
-        await expect(browser).toHaveUrlContaining(twoFactAuthUrl)
-        await expect(twoFactPageTitle).toBeDisplayed()
-        await expect(twoFactPageTitle).toHaveText(twoFactTitleTxt)
-        await expect(flexPrivatNetSubtitle).toBeDisplayed()
-        await expect(flexPrivatNetSubtitle).toHaveText(flexPrivateSubtitleTxt)
-        await expect(tryItFreeBtn).toBeClickable()
+        await expect(browser).toHaveUrlContaining(/use-cases\/two-factor-authentication$/)
+        await expect(twoFactAuthCasePage.pageTitle()).toBeDisplayed()
+        await expect(twoFactAuthCasePage.pageTitle()).toHaveText('Two Factor Authentication')
+        await expect(twoFactAuthCasePage.flexPrivatNetSubtitle()).toBeDisplayed()
+        await expect(twoFactAuthCasePage.flexPrivatNetSubtitle()).toHaveText('Flexible APIs over a private IP network')
+        await expect(twoFactAuthCasePage.tryItFreeBtn()).toBeClickable()
     });
 
     it('Should to open the SMS Marketing use case page by clicking the\
