@@ -2,7 +2,8 @@ const { mainPage } = require('../pageobjects/main.page')
 const { numLookupProdPage } = require('../pageobjects/num.lookup.prod.page')
 const { contactCenterCasePage,
         twoFactAuthCasePage,
-        smsMarketCasePage } = require('../pageobjects/num.lookup.use.case.pages')
+        smsMarketCasePage,
+        callTrackCasePage } = require('../pageobjects/num.lookup.use.case.pages')
 
 
 describe('Opening use cases test suite for the Number Lookup product page', () => {
@@ -50,23 +51,14 @@ describe('Opening use cases test suite for the Number Lookup product page', () =
 
     it('Should to open the Call Tracking use case page by clicking the\
  Call Tracking use case block in the Number Lookup product page', async () => {
-        const callTrackUseCase = await $('main [href*="/call-tracking"]')
-        await callTrackUseCase.click()
+        await numLookupProdPage.openCallTrackCasePage()
 
-        const callTrackUrl = /use-cases\/call-tracking$/
-        const callTrackPageTitle = await $('h1>span')
-        const callTrackPageTitleTxt = 'Call Tracking'
-        const gainInsightChannel = await $('header>h2:nth-child(2)')
-        const gainInsightChanTxt = 'Gain insights in every channel'
-        const seeAllProdLink = await $('main [href="/products"]')
-        const tryItFreeBtn = await $('main [href="/sign-up"]')
-
-        await expect(browser).toHaveUrlContaining(callTrackUrl)
-        await expect(callTrackPageTitle).toBeDisplayed()
-        await expect(callTrackPageTitle).toHaveText(callTrackPageTitleTxt)
-        await expect(gainInsightChannel).toBeDisplayed()
-        await expect(gainInsightChannel).toHaveText(gainInsightChanTxt)
-        await expect(seeAllProdLink).toBeClickable()
-        await expect(tryItFreeBtn).toBeClickable()
+        await expect(browser).toHaveUrlContaining(/use-cases\/call-tracking$/)
+        await expect(callTrackCasePage.pageTitle()).toBeDisplayed()
+        await expect(callTrackCasePage.pageTitle()).toHaveText('Call Tracking')
+        await expect(callTrackCasePage.gainInsightChannel()).toBeDisplayed()
+        await expect(callTrackCasePage.gainInsightChannel()).toHaveText('Gain insights in every channel')
+        await expect(callTrackCasePage.seeAllProdLink()).toBeClickable()
+        await expect(callTrackCasePage.tryItFreeBtn()).toBeClickable()
     });
 })

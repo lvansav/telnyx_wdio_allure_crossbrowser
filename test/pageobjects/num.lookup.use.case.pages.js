@@ -74,11 +74,36 @@ class SmsMarketCasePage extends Page {
     }
 }
 
+class CallTrackCasePage extends Page () {
+    callTrackPageTitle = 'h1>span'
+    gainInsightChannelLoc = 'header>h2:nth-child(2)'
+    seeAllProdLinkLoc = 'main [href="/products"]'
+    tryItFreeBtnLoc = 'main [href="/sign-up"]'
+
+    async pageTitle () {
+        return await $(this.callTrackPageTitle)
+    }
+
+    async gainInsightChannel () {
+        return await $(this.gainInsightChannelLoc)
+    }
+
+    async seeAllProdLink () {
+        return await $(this.seeAllProdLinkLoc)
+    }
+
+    async tryItFreeBtn () {
+        return await $(this.tryItFreeBtnLoc)
+    }
+}
+
 module.exports = {
     ContactCenterCasePage: ContactCenterCasePage,
     contactCenterCasePage: new ContactCenterCasePage,
     TwoFactAuthCasePage: TwoFactAuthCasePage,
     twoFactAuthCasePage: new TwoFactAuthCasePage,
     SmsMarketCasePage: SmsMarketCasePage,
-    smsMarketCasePage: new SmsMarketCasePage
+    smsMarketCasePage: new SmsMarketCasePage,
+    CallTrackCasePage: CallTrackCasePage,
+    callTrackCasePage: new CallTrackCasePage
 }

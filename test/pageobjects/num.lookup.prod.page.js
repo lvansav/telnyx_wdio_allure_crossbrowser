@@ -9,6 +9,7 @@ const talkExpertsBelowTryFreeLink = 'div:nth-child(7) [href*="/contact-us"]'
 const contactCenterCaseBlock = 'main [href*="contact-center"]'
 const twoFactAuthCaseBlock = "[href*='/two-factor-authentication']"
 const smsMarketCaseBlock = '[href*="/sms-marketing"]'
+const callTrackCaseBlock = 'main [href*="/call-tracking"]'
 
 
 class NumLookupProdPage extends Page {
@@ -38,6 +39,10 @@ class NumLookupProdPage extends Page {
 
     async openSmsMarketCasePage () {
         await this.openPage(smsMarketCaseBlock)
+    }
+
+    async openCallTrackCasePage () {
+        await this.openPage(callTrackCaseBlock)
     }
 }
 
